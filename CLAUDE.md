@@ -12,7 +12,7 @@ Derleme, paket kurulumu, linter veya test yok.
 ## Kullanılan teknoloji
 
 - Ön yüz (landing page ve ileride yönetim paneli): sadece HTML, CSS ve JavaScript (framework veya kütüphane yok).
-- Backend (planlanıyor, henüz kurulmadı): Node.js + Express + TypeScript. Ayrıntılar aşağıdaki "Backend kararları" bölümünde.
+- Backend (`backend/`, iskelet kuruldu): Node.js + Express + TypeScript. Ayrıntılar aşağıdaki "Backend kararları" bölümünde.
 - Yazı tipleri Google Fonts'tan geliyor: başlıklarda Fraunces, metinlerde Inter.
 
 ## Proje özeti
@@ -46,13 +46,14 @@ KAIRO; berber, danışman ve koç gibi serbest çalışanlar için randevu, mü�
 
 ## Backend kararları
 
-Henüz kod yazılmadı; tasarım konuşması sürüyor. Şu ana kadar alınan kararlar:
+Sadece iskelet var (`GET /api/health`); randevu ve müşteri kodu yok, tasarım konuşması sürüyor. Şu ana kadar alınan kararlar:
 
 - Öncelik: randevu ve müşteri takip sistemi.
 - Kullanıcılar hizmet sağlayıcılardır (berber, danışman, koç). Her biri yalnızca kendi randevularını ve müşterilerini görür.
-- Teknoloji: Node.js (v24 LTS, nvm ile kurulu), Express, TypeScript. Backend `backend/` klasöründe olacak.
+- Teknoloji: Node.js (v24 LTS, nvm ile kurulu), Express, TypeScript. Backend `backend/` klasöründe.
 - Yönetim paneli ön yüzü: düz HTML, CSS ve JS. Landing page'e dokunulmayacak.
 - Panel akışı: giriş yap, açılışta o günün randevularını gör, sekmelerle müşteri listesine veya haftalık / aylık takvime geç.
 - Veriler şimdilik bellekte tutulacak (sunucu yeniden başlayınca silinir). Veritabanı sonra seçilecek; bu yüzden veri erişimi ayrı bir katmanda (depo) olmalı.
+- Backend komutları (`backend/` içinde, Node için önce `nvm` yüklenmiş olmalı): `npm install`, `npm run dev` (izleme modu), `npm start`, `npm run typecheck`. Node 24 `.ts` dosyalarını doğrudan çalıştırır, derleme yok; bu yüzden içe aktarmalarda `.ts` uzantısı yazılır. Port: `PORT` ortam değişkeni, varsayılan 3000.
 - Müşterilerin randevu alacağı sayfa bir sonraki adımdır, ilk sürümde yok. Randevuyu şimdilik hizmet sağlayıcı panelden girer.
 - Henüz karar verilmedi: randevu ve müşteri kaydındaki alanlar, giriş yöntemi ayrıntıları (e-posta + parola ve oturum çerezi önerildi, onaylanmadı).
